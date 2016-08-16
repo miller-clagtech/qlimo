@@ -1,16 +1,18 @@
 'use strict';
 
-class NavbarController {
-  //end-non-standard
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  //start-non-standard
-  constructor(Auth) {
-    this.isLoggedIn = Auth.isLoggedIn;
-    this.isAdmin = Auth.isAdmin;
-    this.getCurrentUser = Auth.getCurrentUser;
-  }
+var NavbarController =
+//end-non-standard
 
-}
+//start-non-standard
+function NavbarController(Auth) {
+  _classCallCheck(this, NavbarController);
 
-angular.module('aacrudApp')
-  .controller('NavbarController', NavbarController);
+  this.isLoggedIn = Auth.isLoggedIn;
+  this.isAdmin = Auth.isAdmin;
+  this.getCurrentUser = Auth.getCurrentUser;
+};
+
+angular.module('aacrudApp').controller('NavbarController', NavbarController);
+//# sourceMappingURL=navbar.controller.js.map

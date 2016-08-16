@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+(function () {
 
   function UserResource($resource) {
     return $resource('/api/users/:id/:controller', {
@@ -21,6 +21,6 @@
     });
   }
 
-  angular.module('aacrudApp.auth')
-    .factory('User', UserResource);
+  angular.module('aacrudApp.auth').factory('User', UserResource);
 })();
+//# sourceMappingURL=user.service.js.map

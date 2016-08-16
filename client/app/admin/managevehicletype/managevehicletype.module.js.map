@@ -1,0 +1,1 @@
+{"version":3,"sources":["app/admin/managevehicletype/managevehicletype.module.js"],"names":[],"mappings":"AAAA;;AACA,QAAQ,MAAR,CAAe,6BAAf,EAA8C,CAAC,gBAAD,EAAmB,WAAnB,CAA9C","file":"app/admin/managevehicletype/managevehicletype.module.js","sourcesContent":["'use strict';\nangular.module('aacrudApp.managevehicletype', ['aacrudApp.auth', 'ui.router']);\n"],"sourceRoot":"/source/"}

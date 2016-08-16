@@ -1,0 +1,1 @@
+{"version":3,"sources":["app/admin/admin.module.js"],"names":[],"mappings":"AAAA;;AACA,QAAQ,MAAR,CAAe,iBAAf,EAAkC,CAAC,gBAAD,EAAmB,WAAnB,CAAlC","file":"app/admin/admin.module.js","sourcesContent":["'use strict';\nangular.module('aacrudApp.admin', ['aacrudApp.auth', 'ui.router']);\n"],"sourceRoot":"/source/"}
