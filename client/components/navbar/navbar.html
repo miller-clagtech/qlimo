@@ -1,0 +1,32 @@
+<div class="header" ng-controller="NavbarController">
+  <div class="container clearfix">
+    <div class="logo" ui-sref-active="active"> <a ui-sref="main"><img src="assets/images/logo.png"></a> </div>
+    <!--logo-->
+    <div class="header-right">
+      <div class="contact-no"> 974 2314 5678 </div>
+      <!--contact-no-->
+     
+      <div class="collapase-btn" ng-model="collapsed" ng-click="collapsed=!collapsed">
+      	<span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="header-menu">
+        <ul>
+          <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Register</a></li>
+          <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
+          <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Hello {{ nav.getCurrentUser().name }}</p> </li>
+          <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
+          <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
+        
+          <li><a ui-sref="#">Corporate Bookings</a></li>
+          <li><a ui-sref="signup_service_provider">Join as a Partner</a></li>
+        </ul>
+      </div>
+      <!--header-menu-->
+       
+    </div>
+    <!--header-right--> 
+  </div>
+  <!--container--> 
+</div>

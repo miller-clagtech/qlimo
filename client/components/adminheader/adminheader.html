@@ -1,0 +1,15 @@
+<div class="dashboard-content dashboard-header">
+<div class="top-bar">
+  <div class="toggle-btn" id="navigation-toggle" ng-click="headerCtrl.toggleState()"> <span></span> <span></span> <span></span> </div>
+  <h1 ng-show="headerCtrl.isAdmin()">Admin Management</h1>
+  <h1 ng-hide="headerCtrl.isAdmin()">Service Provider Management</h1>
+</div>
+<div class="select-drivers"  ng-show="headerCtrl.isAdmin()" > 
+        <md-input-container>
+          <label>Select service provider to view drivers</label>
+          <md-select ng-model="headerCtrl.switchServiceProviderData" ng-change="headerCtrl.switchServiceProvider()">
+            <md-option ng-repeat="driver in headerCtrl.serviceProviderLists" value="{{driver._id}}"> {{driver.company_name}} </md-option>
+          </md-select>
+        </md-input-container>
+    </div>
+</div>

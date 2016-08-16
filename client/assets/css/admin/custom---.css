@@ -1,0 +1,464 @@
+/****************************
+MyriadPro Font
+*****************************/
+@font-face {
+  font-family: 'MyriadPro-Bold';
+  src: url('../myriad-font/MyriadPro-Bold.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-Bold.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-Bold.woff') format('woff'), url('../myriad-font/MyriadPro-Bold.ttf')  format('truetype'), url('../myriad-font/MyriadPro-Bold.svg#MyriadPro-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-BoldIt';
+  src: url('../myriad-font/MyriadPro-BoldIt.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-BoldIt.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-BoldIt.woff') format('woff'), url('../myriad-font/MyriadPro-BoldIt.ttf')  format('truetype'), url('../myriad-font/MyriadPro-BoldIt.svg#MyriadPro-BoldIt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-BoldCond';
+  src: url('../myriad-font/MyriadPro-BoldCond.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-BoldCond.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-BoldCond.woff') format('woff'), url('../myriad-font/MyriadPro-BoldCond.ttf')  format('truetype'), url('../myriad-font/MyriadPro-BoldCond.svg#MyriadPro-BoldCond') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-BoldCondIt';
+  src: url('../myriad-font/MyriadPro-BoldCondIt.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-BoldCondIt.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-BoldCondIt.woff') format('woff'), url('../myriad-font/MyriadPro-BoldCondIt.ttf')  format('truetype'), url('../myriad-font/MyriadPro-BoldCondIt.svg#MyriadPro-BoldCondIt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-Cond';
+  src: url('../myriad-font/MyriadPro-Cond.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-Cond.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-Cond.woff') format('woff'), url('../myriad-font/MyriadPro-Cond.ttf')  format('truetype'), url('../myriad-font/MyriadPro-Cond.svg#MyriadPro-Cond') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-CondIt';
+  src: url('../myriad-font/MyriadPro-CondIt.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-CondIt.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-CondIt.woff') format('woff'), url('../myriad-font/MyriadPro-CondIt.ttf')  format('truetype'), url('../myriad-font/MyriadPro-CondIt.svg#MyriadPro-CondIt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-Regular';
+  src: url('../myriad-font/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-Regular.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-Regular.woff') format('woff'), url('../myriad-font/MyriadPro-Regular.ttf')  format('truetype'), url('../myriad-font/MyriadPro-Regular.svg#MyriadPro-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-Semibold';
+  src: url('../myriad-font/MyriadPro-Semibold.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-Semibold.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-Semibold.woff') format('woff'), url('../myriad-font/MyriadPro-Semibold.ttf')  format('truetype'), url('../myriad-font/MyriadPro-Semibold.svg#MyriadPro-Semibold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-SemiboldIt';
+  src: url('../myriad-font/MyriadPro-SemiboldIt.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-SemiboldIt.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-SemiboldIt.woff') format('woff'), url('../myriad-font/MyriadPro-SemiboldIt.ttf')  format('truetype'), url('../myriad-font/MyriadPro-SemiboldIt.svg#MyriadPro-SemiboldIt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/****************************
+Reset Css
+*****************************/
+.body-back-end body {
+	font-size: 14px;
+	font-family: 'MyriadPro-Regular';
+}
+.body-back-end h1 {
+	color: #122c43;
+	font-size: 20px;
+	margin: 0;
+	font-family: 'MyriadPro-Regular';
+}
+
+/****************************
+Dashboard Left Sidebar
+*****************************/
+.body-back-end .dashboard-bg{
+	background-color:#fff;
+	position: relative;
+}
+.body-back-end .dashboard-category-menu {
+    background-color: #14324c;
+    width: 233px;
+    padding: 20px 0 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+}
+.body-back-end .category-menu-logo{
+	width:100%;
+	text-align:center;
+	margin-bottom:25px;
+}
+.body-back-end .welcome-admin-container{
+	background-color:#e1e1e1;
+}
+.body-back-end .welcome-admin{
+	width:151px;
+	font-size:14px;
+	color:#6e6e6e;
+	font-family: 'MyriadPro-Regular';
+	float:left;
+	padding:10px 10px;
+}
+.body-back-end .welcome-admin span{
+	color: #444;
+	font-size:20px;
+	font-weight:700;
+	text-transform:uppercase;
+	padding-left:6px;
+	font-family: 'MyriadPro-Bold';
+}
+.body-back-end .admin-power-button {
+	float:left;
+	width:41px;
+	border-right:1px solid #e1e1e1;	
+}
+.body-back-end .admin-power-button a,.admin-setting a{
+	background-color:#444444;
+	text-align:center;
+	font-size:18px;
+	color:#fff;
+	display:block;
+	padding:11px 0 12px;
+}
+.body-back-end .admin-power-button a:hover,
+.body-back-end .admin-setting a:hover {
+	background-color:#ffaf0c;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+}
+.body-back-end .admin-setting{
+	float:left;
+	width:41px;
+}
+
+.body-back-end .dashboard-category-menu ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.body-back-end .dashboard-category-menu ul li{
+	border-bottom:2px solid #122c43;
+}
+.body-back-end .dashboard-category-menu ul li:first-child{
+	border-top:2px solid #122c43;
+}
+.body-back-end .dashboard-category-menu ul li:last-child{
+	border:none;
+}
+.body-back-end .dashboard-category-menu ul li a{
+	color:#e1e1e1;
+	font-size:16px;
+	font-family: 'MyriadPro-Regular';
+	display:block;
+	padding:14px 10px 14px 25px;
+	text-decoration:none;
+}
+.body-back-end .dashboard-category-menu ul li a .fa{
+	color:#e1e1e1; 
+	margin-right:15px;
+}
+.body-back-end .dashboard-category-menu ul li a:hover{
+	text-decoration:none;
+	background-color:#ffaf0c;
+	color:#14324c;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+}
+.body-back-end .dashboard-category-menu ul li a:hover .fa{
+	color:#14324c;
+}
+
+/****************************
+Dashboard Right Sidebar
+*****************************/
+.body-back-end .dashboard-content {
+    margin-left: 233px;
+    position: relative;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+}
+.body-back-end .top-bar {
+	background: #e1e1e1;
+	height: 58px;
+	text-align: center;
+	padding: 16px 0;
+}
+.body-back-end .toggle-btn {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+	cursor:pointer;
+}
+.body-back-end .toggle-btn span {
+    width: 18px;
+    height: 3px;
+    display: block;
+    background: #122c43;
+    margin: 2px 0;
+}
+.body-back-end .dashboard-bg.show .dashboard-category-menu {
+    left: -233px;
+}
+.body-back-end .dashboard-bg.show .dashboard-content {
+	margin-left: 0;
+}
+.body-back-end .select-drivers {
+    margin: 36px 0;
+}
+.body-back-end .select-drivers md-input-container{
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+.body-back-end .select-drivers label {
+	display: none;
+}
+.body-back-end .select-drivers .md-select-value {
+	color: #fff;
+	height: 38px;
+	display: block;
+	padding: 8px 12px;
+	background: #feaf0c;
+	border: 1px solid #000 !important;
+	border-radius: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-webkit-border-radius: 0;
+	font-family: 'MyriadPro-Regular';
+}
+.select-drivers span {
+    display: block;
+	color: #fff !important;
+}
+.body-back-end .select-drivers .md-select-icon {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 18px;
+    color: #000 !important;
+}
+.dashboard-heading {
+	text-align: center;
+    background: #e1e1e1;
+    padding: 13px 15px 13px;
+}
+.dashboard-heading h2 {
+	margin: 0;
+	color: #444;
+	font-size: 20px;
+	font-family: 'MyriadPro-Bold';
+}
+.admin-content {
+    position: relative;
+}
+.admin-left {
+    margin-right: 265px;
+}
+.panel-heading {
+	position: relative;
+	padding: 25px 15px; 
+    text-align: center;
+}
+.panel-heading h2 {
+    font-size: 21px;
+	margin: 0;
+	padding:0 15px;
+	background: #fff;
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+}
+.panel-heading:before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    right: 25%;
+    bottom: 0;
+    left: 25%;
+    height: 1px;
+    background: #000;
+    z-index: 0;
+}
+.admin-right {
+    width: 265px;
+    padding: 30px 15px;
+    background: #f7f7f7;
+    border-left: 1px solid #e3e3e3;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.button {
+	border: 0;
+    outline: 0;
+    color: #fff;
+    font-size: 18px;
+    padding: 6px 44px;
+    border-radius: 4px;
+	-webkit-border-radius: 4px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.15);
+	-webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.15);
+	font-family: 'MyriadPro-Regular';
+}
+.add-btn {
+    background: #00bff3;
+}
+.filter-title {
+    color: #000;
+    font-size: 18px;
+    text-align: center;
+    margin: 40px 0 20px;
+	position: relative;
+    font-family: 'MyriadPro-Regular';
+}
+.filter-title span {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    background: #f7f7f7;
+    padding: 0 5px;
+}
+.filter-title:before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background: #000;
+    z-index: 0;
+}
+.filter-select md-input-container {
+    display: block;
+}
+.filter-select md-input-container>md-select span,
+.filter-select md-select-value {
+	color: #000;
+	display: block !important;
+}
+.filter-select md-input-container>md-select span {
+	text-align: center;
+}
+.filter-select md-input-container>md-select span .md-text.ng-binding {
+	text-align: left;
+	display:block;
+}
+.filter-select label {
+    display: none;
+}
+.filter-select .md-select-icon {
+    position: absolute;
+    top: 4px;
+    right: 3px;
+}
+.filter-select .md-select-value {
+    border: 0 !important;
+    background: #fff;
+    padding: 5px 12px;
+	height: 34px;
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+    box-shadow: 1px 1px 1px 0px #dcdcdc;
+	-webkit-box-shadow: 1px 1px 1px 0px #dcdcdc;
+}
+md-option {
+	display: block;
+	padding: 16px;
+}
+.search .form-control {
+	color: #000;
+	border: 0;
+	line-height: 18px;
+	border-radius: 0;
+	box-shadow: 1px 1px 1px 0px #dcdcdc;
+	-webkit-box-shadow: 1px 1px 1px 0px #dcdcdc;
+}
+.search .form-control::-webkit-input-placeholder {
+	text-align: center;
+}
+.search .form-control::-moz-placeholder {
+	text-align: center;
+}
+.search .form-control:-ms-input-placeholder {
+	text-align: center;
+}
+.search .form-control:-moz-placeholder {
+	text-align: center;
+}
+.search-btn {
+    background: #34b800;
+    text-transform: uppercase;
+    margin-top: 40px;
+	padding: 6px 30px;
+}
+.drivers-detail .table-bordered>thead>tr,
+.drivers-detail .table-bordered>tbody>tr {
+	box-shadow: 0 0 5px 0 rgba(0,0,0,0.15);
+}
+.drivers-detail .table-bordered>thead>tr>th,
+.drivers-detail .table-bordered>tbody>tr>td {
+    font-size: 12px;
+    font-weight: 400;
+	vertical-align: middle;
+    padding: 4px 8px;
+	border: 1px solid #d7d7d7;
+}
+.drivers-detail .table-bordered>tbody>tr>td {
+    font-size: 13px;
+	padding: 15px 8px;
+	background: #f9f9f9;
+}
+.drivers-detail .table-bordered>thead>tr>th:nth-last-child(1),
+.drivers-detail .table-bordered>thead>tr>th:nth-last-child(2),
+.drivers-detail .table-bordered>thead>tr>th:nth-last-child(3),
+.drivers-detail .table-bordered>thead>tr>th:nth-last-child(4),
+.drivers-detail .table-bordered>thead>tr>th:nth-last-child(5),
+.drivers-detail .table-bordered>tbody>tr>td:nth-last-child(1),
+.drivers-detail .table-bordered>tbody>tr>td:nth-last-child(2),
+.drivers-detail .table-bordered>tbody>tr>td:nth-last-child(3),
+.drivers-detail .table-bordered>tbody>tr>td:nth-last-child(4),
+.drivers-detail .table-bordered>tbody>tr>td:nth-last-child(5) {
+	text-align: center;
+}
+.approved {
+    background: #34b800;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+.pending {
+    background: #00bff3;
+    padding: 2px 9px;
+    font-size: 12px;
+}
+.edit,
+.user-times,
+.delete {
+    border: 0;
+    outline: 0;
+	font-size: 18px;
+    background: transparent;
+}
+.edit {
+	color: #34b800;
+}
+.user-times {
+	color: #ff6c00;
+}
+.delete {
+	color: #ff0000;
+}

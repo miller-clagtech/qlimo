@@ -1,0 +1,129 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet" type="text/css">
+<link href="assets/css/admin/custom.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/admin/custom2.css" rel="stylesheet" type="text/css" />
+
+<div class="body-back-end" >
+  <div class="dashboard-bg" sidebar-directive="state">
+
+<adminheader></adminheader>
+<adminnav></adminnav>
+
+
+
+    <div class="dashboard-content">
+      <!-- /Top Bar -->
+      <!-- /Select Drivers -->
+      
+      <div class="dashboard-heading">
+        <h2>Manage Vehicle</h2>
+      </div>
+      <div class="admin-content">
+        <div class="admin-left">
+          <div class="drivers-detail bs-component">
+            <div >
+<!--              <div class="panel-heading">-->
+                <form class="thing-form">
+                    <label ng-show="managevehicleCtrl.addNew">Add new Vehicle</label>
+                    <label ng-hide="managevehicleCtrl.addNew">Edit Vehicle</label>
+                    <p class="input-group">
+                        <input type="hidden" class="form-control" ng-model="managevehicleCtrl.id">
+                        <md-select 
+                            class="form-control list-input-custom-vehicle"
+                            placeholder="Vehicle Type"
+                            ng-model="managevehicleCtrl.vehicleType"
+                            ng-change="managevehicleCtrl.taxiModel(managevehicleCtrl.taxiModel3)">
+                            <md-option ng-repeat="vehicleType in managevehicleCtrl.vehicleTypeLists | filter : { active: true }">{{vehicleType.name}}</md-option>
+                        </md-select>
+                      <input type="text" class="form-control list-input-custom-vehicle" placeholder="Vehicle Name" ng-model="managevehicleCtrl.vehicle">
+                      <span class="input-group-btn">
+                        <button ng-show="managevehicleCtrl.addNew" type="submit" class="btn btn-primary" ng-click="managevehicleCtrl.addThing()">Add New</button>
+                        <button ng-hide="managevehicleCtrl.addNew" type="submit" class="btn btn-primary" ng-click="managevehicleCtrl.updateValue()">Update Details</button>
+                        <button type="submit" class="btn btn-info" ng-click="managevehicleCtrl.resetThing()">Reset</button>
+                      </span>
+                    </p>
+                  </form>
+              <!--</div>-->
+              <div class="table-responsive-auto" >
+                <table class="table table-bordered table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Vehicle Type</th>
+                      <th>Vehicle</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!--<tr dir-paginate="user in users|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">-->
+                    <tr ng-repeat="vehicles in managevehicleCtrl.vehiclesLists" >
+                      <td>{{$index + 1}}</td>
+                      <td>{{vehicles.vehicleType}}</td>
+                      <td>{{vehicles.vehicle}}</td>
+                      
+                      <td>
+                        <button type="button" class="edit" ng-click="managevehicleCtrl.updateThing(vehicles)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        <button type="button" class="user-times" ng-show="vehicles.active" ng-click="managevehicleCtrl.changeStatus(vehicles)"><i class="fa fa-user-times" aria-hidden="true"></i></button>
+                        <button type="button" class="user-times-disabled" ng-hide="vehicles.active" ng-click="managevehicleCtrl.changeStatus(vehicles)"><i class="fa fa-user-times" aria-hidden="true"></i></button>
+                        <button type="button" class="delete" ng-click="managevehicleCtrl.deleteThing(vehicles)"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+                      </td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+                <dir-pagination-controls
+                        max-size="5"
+                        direction-links="true"
+                        boundary-links="true" > </dir-pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Admin Left -->
+        
+        <div class="admin-right">
+          <div class="text-center">
+            <button type="button" class="button add-btn">Add</button>
+          </div>
+          <div class="filter-title"><span>Filter</span></div>
+          <div  class="filter-select">
+            <md-input-container>
+              <label>Driver Status</label>
+              <md-select ng-model="ctrl.userSt">
+                <md-option ng-repeat="st in ctrl.status" value="{{st.abbrev}}"> {{st.abbrev}} </md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+          <div  class="filter-select">
+            <md-input-container>
+              <label>Driver ID</label>
+              <md-select ng-model="ctrl.userdriverid">
+                <md-option ng-repeat="driver in ctrl.statdrivers" value="{{driver.abbrev}}"> {{driver.abbrev}} </md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+          <div class="search">
+            <input type="text" placeholder="search keyword" class="form-control">
+          </div>
+          <!-- /Search -->
+          <div class="text-center">
+            <button type="button" class="button search-btn">Search</button>
+          </div>
+        </div>
+        <!-- Admin Right --> 
+      </div>
+    </div>
+    
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+

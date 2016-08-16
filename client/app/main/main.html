@@ -1,0 +1,578 @@
+
+<div  class="body-front-end">
+<navbar></navbar>
+
+<div class="container custom-container">
+  <div class="page-heading">  {{$ctrl.message}} Lorem ipsum, consectetur adipiscing elit. <span>Quisque dignissim vite lobortis</span> </div>
+  <!--page-heading-->
+  <div class="cab-schedule-container booking-container clearfix">
+    <form class="form-horizontal" role="form">
+      <div class="row">
+        <div class="col-sm-6 col-md-3 cab-book-now-select" ng-controller="bookcapnow">
+          <md-select class="book-now-select"  ng-model="$ctrl.bookText">
+            <md-option ng-repeat="book in books" selected="">{{book.name}}</md-option>
+          </md-select>
+        </div>
+          
+        <div class="col-sm-6 col-md-3 pick-point enter-point">
+          <md-input-container class="md-block">
+              <span ng-hide="$ctrl.searchPickUpStatus" style="color: red">This field is require</span>
+            <label for="pickup-point" class="control-label">Enter pickup point</label>
+            <input type="text" for="pickup-point" class="form-control" id="txtSource" value="" ng-model="$ctrl.pickUpText" data-tap-disabled="true" >
+          </md-input-container>
+        </div>
+        <div class="col-sm-6 col-md-3 drop-point enter-point">
+          <md-input-container class="md-block">
+              <span ng-hide="$ctrl.searchDropPointStatus" style="color: red">This field is require</span>
+            <label for="drop-point" class="control-label">Enter drop point</label>
+            <input type="text" for="drop-point" class="form-control" id="txtDestination" value="" ng-model="$ctrl.dropPointText" data-tap-disabled="true" >
+          </md-input-container>
+        </div>
+        <div class="col-sm-6 col-md-3 landmark">
+          <md-input-container class="md-block">
+              <span ng-hide="$ctrl.searchLandmarkStatus" style="color: red">This field is require</span>
+            <label for="drop-point" class="control-label">Landmark,notes</label>
+            <input type="text" for="drop-point" class="form-control" ng-model="$ctrl.landmarkText" >
+          </md-input-container>
+        </div>
+        <div class="edit-btn">
+          <!--<button type="submit" class="btn btn-default" ng-click="$ctrl.searchQuery()" onclick="GetRoute()"><i class="fa fa-search" aria-hidden="true"></i></button>-->
+          <button type="submit" class="btn btn-default" onclick="GetRoute()" ng-click="$ctrl.searchQuery()"><i class="fa fa-search" aria-hidden="true"></i></button>
+          
+        </div>
+      </div>
+    </form>
+      
+  </div>
+  
+  <!--cab-schedule-container-->
+  <div class="service-container" ng-hide="$ctrl.searchStatus">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="service-name"> Schedule A Cab </div>
+        <!--service-name-->
+        <div class="service-image"> <img src="assets/images/service01.png"> </div>
+        <!--service-image--> 
+      </div>
+      <!--col-sm-3-->
+      
+      <div class="col-sm-3">
+        <div class="service-name"> Predefine Destination </div>
+        <!--service-name-->
+        <div class="service-image"> <img src="assets/images/service02.png"> </div>
+        <!--service-image--> 
+      </div>
+      <!--col-sm-3-->
+      
+      <div class="col-sm-3">
+        <div class="service-name"> Select Service Provider </div>
+        <!--service-name-->
+        <div class="service-image"> <img src="assets/images/service03.png"> </div>
+        <!--service-image--> 
+      </div>
+      <!--col-sm-3-->
+      
+      <div class="col-sm-3">
+        <div class="service-name"> Login Not Mandatory </div>
+        <!--service-name-->
+        <div class="service-image"> <img src="assets/images/service04.png"> </div>
+        <!--service-image--> 
+      </div>
+      <!--col-sm-3--> 
+    </div>
+    <!--row--> 
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <div class="selectOptions" ng-show="$ctrl.searchStatus" >
+  <div class="step-counter clearfix">
+  		<div class="step step1 active clearfix">
+        	<div class="step-count clearfix">
+            	<span class="step-number">1</span>
+                <span class="dash"></span>
+                <span class="dash"></span>
+            </div>
+            <div class="step-text">Select Taxi</div>
+            <div class="step-count rotate clearfix">
+                <span class="dash none"></span>
+                <span class="dash none"></span>
+                <span class="dash"></span>
+                <span class="dash"></span>
+                <span class="dash"></span>
+            </div>
+        </div><!-- Step1 -->
+         
+        <div class="step step2  {{$ctrl.popupServiceProviderClass}} clearfix">
+            <div class="step-count clearfix">
+            	<span class="step-number">2</span>
+                <span class="dash"></span>
+                <span class="dash"></span>
+            </div>
+            <div class="step-text">Select Service Provider</div>
+            <div class="step-count rotate clearfix">
+                <span class="dash none"></span>
+                <span class="dash none"></span>
+                <span class="dash"></span>
+                <span class="dash"></span>
+                <span class="dash"></span>
+            </div>
+        </div><!-- Step2 -->
+        <div class="step step3 clearfix">
+        	<div class="step-count clearfix">
+            	<span class="step-number">3</span>
+                <span class="dash"></span>
+                <span class="dash"></span>
+            </div>
+            <div class="step-text">Confirm Booking</div>
+        </div><!-- Step3 -->
+        <div class="confirm-btn">
+        	<button type="button" class="button">Confirm</button>
+        </div><!-- /Confirm Btn -->
+  </div><!-- /Step Counter -->
+  
+  <div class="service-provider-container">
+    <div class="service-provider-row clearfix">
+      <div class="service-provider-col">
+        <div class="service-provider">
+          <div class="service-provider-select" ng-controller="selecttaxitype as ctrl" layout="column" ng-cloak>
+            <md-content>
+              <form ng-submit="$event.preventDefault()">
+<!--                <md-autocomplete
+                      ng-disabled="ctrl.isDisabled"
+                      md-no-cache="ctrl.noCache"
+                      md-selected-item="ctrl.selectedItem"
+                      md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                      md-search-text="ctrl.searchText"
+                      md-selected-item-change="ctrl.selectedItemChange(item)"
+                      md-items="item in ctrl.querySearch(ctrl.searchText)"
+                      md-item-text="item.display"
+                      md-min-length="0"
+                      placeholder="Select Taxi Type">
+                  <md-item-template> <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span> </md-item-template>
+                  <md-not-found> No states matching "{{ctrl.searchText}}" were found. <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a> </md-not-found>
+                </md-autocomplete>-->
+                <md-select
+                    placeholder="Vehicle Type"
+                    ng-model="$ctrl.taxiModel3"
+                    ng-change="$ctrl.taxiModel($ctrl.taxiModel3)">
+                    <md-option ng-repeat="vehicle_type in $ctrl.vehicleTypeLists | filter : { active: true }">{{vehicle_type.name}}</md-option>
+                </md-select>
+              </form>
+            </md-content>
+          </div>
+<!--            <form class="thing-form">
+    <label>Syncs in realtime across clients</label>
+    <p class="input-group">
+      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="$ctrl.newThing">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary" ng-click="$ctrl.taxiModel()">Add New</button>
+      </span>
+    </p>
+  </form>-->
+          <div class="service-provider-select" ng-controller="selectmanufacturer as ctrl" layout="column" ng-cloak>
+            <md-content>
+              <form ng-submit="$event.preventDefault()">
+                  
+<!--                <md-autocomplete
+                      ng-disabled="ctrl.isDisabled"
+                      md-no-cache="ctrl.noCache"
+                      md-selected-item="ctrl.selectedItem"
+                      md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                      md-search-text="ctrl.searchText"
+                      md-selected-item-change="ctrl.selectedItemChange(item)"
+                      md-items="item in ctrl.querySearch(ctrl.searchText)"
+                      md-item-text="item.display"
+                      md-min-length="0"
+                      placeholder="Select Manufacturer">
+                  <md-item-template> <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span> </md-item-template>
+                  <md-not-found> No states matching "{{ctrl.searchText}}" were found. <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a> </md-not-found>
+                </md-autocomplete>-->
+                
+                <md-select
+                    placeholder="Vehicle Name"
+                     ng-model="$ctrl.taxiModel4"
+                    >
+                    <md-option ng-repeat="vehicle in $ctrl.vehicleLists | filter : { vehicle_type: $ctrl.vehicleType } | filter : { active: true }" >
+                        {{ vehicle.vehicle }}
+                    </md-option>
+                </md-select>
+              </form>
+                
+            </md-content>
+          </div>
+        </div>
+        <!-- /Service Provider -->
+<!--        <div ng-controller='MyCtrl'>
+    <button ng-click='toggleModal()'>Open First Dialog</button>
+    <button ng-click='toggleModal1()'>Open Second Dialog</button>
+    <modal-dialog info='modalShown' show='modalShown' width='400px' height='60%'>
+      <p>Modal Content Goes here<p>
+    </modal-dialog>
+      <modal-dialog show='modalShown1' info='modalShown1' width='400px' height='60%'>
+      <p>2<p>
+    </modal-dialog>
+  </div>-->
+        
+        
+      <div class="limo-service-provider-popup" ng-controller="MyCtrl">
+      	<button ng-click="toggleModal()" class="md-raised limo-service-provider-btn">Service Provider</button>
+        
+        <modal-dialog info='modalShown' show='modalShown' width='100%' height='100%' ng-hide="$ctrl.popupServiceProvider" >
+            
+            <!--<modal-dialog show='modalShown1' info='modalShown1' width='100' height='100%'></modal-dialog>-->
+    
+<!--      <div class='ng-modal' ng-show='show'>
+          <div class='ng-modal-overlay' ng-click='hideModal()'></div>
+          <div class='ng-modal-dialog' ng-style='dialogStyle'>
+              <div class='ng-modal-close' ng-click='hideModal()'>X</div>
+              <div class='ng-modal-dialog-content' ng-transclude></div>
+          </div>
+      </div>-->
+          
+			  <div class="select-service-provider-popup">
+			  	<div class="limo-popup-header">
+			  	  <h2>Select a service provider</h2>
+                                  
+				  <div class="limo-cancle-btn" ng-click="$ctrl.closePopup()">
+				 	 <img src="assets/images/ic_close_24px.svg" />
+				  </div>
+				</div>
+				  <div class="service-provider-dialog-content">
+				  		<ul>
+	<li ng-repeat="serviceprovider in $ctrl.serviceproviderLists">
+            <div class="service-provider-info">
+                    <div class="service-provider-info-inner clearfix">
+                            <div class="service-provider-name">
+                                    <i class="taxi-icon"><img src="assets/images/service-provider-icon.png" /></i>
+                                    <h2>{{ serviceprovider.company_name }}</h2>
+                                    <input type="button" name="show_details" value="Select this" ng-click="$ctrl.selectServiceProvider(serviceprovider._id)">
+                                    <div class="rating">
+                                            <ul>
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                            </ul>
+                                    </div> <!-- /Rating -->
+                            </div> <!-- /Service Provider Name -->
+                            <div class="payment-method">
+                                    <h4>Payment Method</h4>
+                                    <ul>
+                                            <li class="card"><a href="javascript:void()"></a></li>
+                                            <li class="cod"><a href="javascript:void()"></a></li>
+                                    </ul>
+                            </div> <!-- /Payment Method -->
+                    </div>
+                    <div class="estimated-time">
+                            <ul>
+                                    <li>
+                                            <h4>Arrival Time</h4>
+                                            <span>{{ serviceprovider.arrival_time }} {{ serviceprovider.arrival_time_type }}</span>
+                                    </li>
+                                    <li>
+                                            <h4>Estimated Fare</h4>
+                                            <span>${{ serviceprovider.estimated_time }}</span>
+                                    </li>
+                                    <li>
+                                            <h4>Minimum Fare</h4>
+                                            <span>${{ serviceprovider.minimum_fare }}</span>
+                                    </li>
+                                    <li>
+                                            <h4>Maxium Riders</h4>
+                                            <span>{{ serviceprovider.maximum_riders }} Person</span>
+                                    </li>
+                            </ul>
+                    </div>
+            </div> <!-- /Service Provider Container -->
+    </li>
+							
+						</ul>
+				  </div>
+			  </div>
+                  
+          </modal-dialog>
+      </div><!-- /Limo Service Provider Popup -->
+      
+<!--      <div class="limo-service-provider-popup" ng-controller="noresult as ctrl">
+      	<button ng-click="ctrl.openDialog($event)" class="md-raised limo-service-provider-btn" style="left:0;">No Result</button>
+		  <script type="text/ng-template" id="noresult.tmpl.html">
+			  <div class="limo-no-result-popup">
+			  	<div class="limo-popup-header">
+			  	  <h2>Result not found</h2>
+				  <div class="limo-cancle-btn" ng-click="ctrl.cancel()">
+				 	 <img src="assets/images/ic_close_24px.svg" />
+				  </div>
+				</div>
+				  <div class="service-provider-dialog-content">
+				  		<div class="no-result">
+							<div class="sorry">Sorry!</div>
+							<h2>No service found as per your search criteria.</h2>
+							<a href="javascript:void(0)">Explore Available options</a>
+						</div>
+				  </div>
+			  </div>
+          </script>
+      </div>-->
+      <!-- /Limo No Result Popup -->
+      
+      </div>
+      <!-- /Service Provider Col -->
+      
+      <div class="service-provider-col">
+        <div class="service-provider">
+        	<div class="service-provider-detail">
+            <h3>Service Provider Detail</h3>
+          <div class="service-provider-info" ng-repeat="data in $ctrl.serviceproviderLists" ng-show="data._id == $ctrl.selectedServiceProviderId">
+            <div class="service-provider-info-inner clearfix">
+                <div class="service-provider-name">
+                    <i class="taxi-icon"><img src="assets/images/service-provider-icon.png" /></i>
+                    <h2>{{ data.name }}</h2>
+                </div> <!-- /Service Provider Name -->
+            </div>
+            <div class="estimated-time">
+                <ul class="clearfix">
+                    <li>
+                        <h4>Arrival Time</h4>
+                        <span>{{ data.arrival_time }} {{ data.arrival_time_type }}</span>
+                    </li>
+                    <li>
+                        <h4>Estimated Fare</h4>
+                        <span>${{ data.estimated_time }}</span>
+                    </li>
+                    <li>
+                        <h4>Minimum Fare</h4>
+                        <span>${{ data.minimum_fare }}</span>
+                    </li>
+                    <li>
+                        <h4>Maxium Riders</h4>
+                        <span>{{ data.maximum_riders }}</span>
+                    </li>
+                </ul>
+                
+            </div>
+        </div> <!-- /Service Provider Container -->
+            <div class="limo-login-popup" ng-controller="login as ctrl">
+            <button ng-click="ctrl.openDialog($event)" class="md-raised limo-service-provider-btn">Continue</button>
+              <script type="text/ng-template" id="login.tmpl.html">
+                  <div class="login-popup">
+                    <div class="limo-popup-header">
+                      <h2>Login to confirm booking</h2>
+                      <div class="limo-cancle-btn" ng-click="ctrl.cancel()">
+                         <img src="assets/images/ic_close_24px.svg" />
+                      </div>
+                    </div>
+                      <div class="login">
+					  		<div class="form-group">
+							  <md-input-container>
+								<label for="email/phone" class="control-label">Email ID/Phone number</label>
+								<input type="text" for="email/phone" class="form-control">
+							  </md-input-container>
+							</div>
+							<div class="form-group">
+							  <md-input-container>
+								<label for="password" class="control-label">Password</label>
+								<input type="password" for="password" class="form-control">
+								<a class="forgot-password" href="javascript:void(0)">Forgot password?</a>
+							  </md-input-container>
+							</div>
+							<div class="form-group login-group-btn">
+								<button class="login-btn button" type="button">Login</button>
+							</div>
+							<div class="new-register">
+								<span>Are you a new user?</span>
+								<a href="javascript:void(0)">Register Now</a>
+							</div>
+                      </div>
+					  <div class="continue-guest">
+						  <span>Continue as Guest<a href="javascript:void(0)"><i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
+					  </div>
+                  </div>
+              </script>
+          </div><!-- /Limo No Result Popup -->
+		</div><!-- /Service Provider Detail -->
+        </div>
+      </div>
+      <!-- /Service Provider Col -->
+      
+      <div class="service-provider-col last">
+        <div class="service-provider">
+        	<div class="booking-detail">
+                <div class="booking-heading">
+                    Booking Detail
+                    <div class="booking-select" ng-controller="paymentcontrol">
+                      <md-select class="book-now-select" placeholder="CASH" ng-model="payment">
+                        <md-option ng-repeat="payment in payments">{{payment.name}}</md-option>
+                      </md-select>
+                    </div>
+                </div>
+                <div class="booking-user-detail">
+                	<div class="location">
+                    	<i class="location-icon"></i>
+                        <div class="location-track">
+                        	<div class="pick-point same-size">
+                            	{{ $ctrl.pickUpText }}
+                            	<i></i>
+                            </div>
+                            <div class="drop-point same-size">
+                            	{{ $ctrl.dropPointText }}
+                            	<i></i>
+                            </div>
+                        </div>
+                    </div><!-- /Location -->
+                    <div class="near-location same-size">
+                    	{{ $ctrl.landmarkText }}
+                        <i></i>
+                    </div><!-- Near Location -->
+                    <div class="row">
+                    	<div class="col-xs-6">
+                            <div class="user-name same-size">
+                                Syed Ali
+                                <i></i>
+                            </div><!-- user name -->
+                        </div><!-- col-sm-6 -->
+                        <div class="col-xs-6">
+                            <div class="phone same-size">
+                                356 4568 8421
+                                <i></i>
+                            </div><!-- user name -->
+                        </div><!-- col-sm-6 -->
+                        <div class="col-xs-6">
+                            <div class="date same-size">
+                                15/05/2016
+                                <i></i>
+                            </div><!-- user name -->
+                        </div><!-- col-sm-6 -->
+                        <div class="col-xs-6">
+                            <div class="distance same-size">
+                                <span id="dvDistance">  </span>
+                                <i></i>
+                            </div><!-- user name -->
+                        </div><!-- col-sm-6 -->
+                    </div><!-- /Row -->
+                </div>
+            </div><!-- /Booking Detail -->
+            
+            <div class="limo-login-popup limo-promo-popup" ng-controller="promocode as ctrl">
+            <button ng-click="ctrl.openDialog($event)" class="md-raised limo-service-provider-btn">Promo Code</button>
+              <script type="text/ng-template" id="promocode.tmpl.html">
+                  <div class="login-popup">
+                    <div class="limo-popup-header">
+                      <h2>Promocode</h2>
+                      <div class="limo-cancle-btn" ng-click="ctrl.cancel()">
+                         <img src="assets/images/ic_close_24px.svg" />
+                      </div>
+                    </div>
+                      <div class="login">
+						<div class="form-group">
+						  <md-input-container>
+							<label for="promo code" class="control-label">Enter promo code</label>
+							<input type="text" for="promo code" class="form-control">
+						  </md-input-container>
+						</div>
+							
+						<div class="form-group login-group-btn promocode-btn">
+							<button class="login-btn button" type="button">Apply</button>
+						</div>
+                      </div>
+                  </div>
+              </script>
+          </div><!-- /Limo Promo Code Popup -->
+          
+          <div class="limo-login-popup limo-confirmed-popup" ng-controller="confirmed as ctrl">
+            <button ng-click="ctrl.openDialog($event)" class="md-raised limo-service-provider-btn">Book Cab</button>
+              <script type="text/ng-template" id="confirmed.tmpl.html">
+                  <div class="login-popup">
+                    <div class="limo-popup-header">
+                      <h2>Booking confirmed</h2>
+                      <div class="limo-cancle-btn" ng-click="ctrl.cancel()">
+                         <img src="assets/images/ic_close_24px.svg" />
+                      </div>
+                    </div>
+                      <div class="confirmed-text">
+						Your booking has been conformed. <br /> You will received a SMS with details shortly.
+                      </div>
+                  </div>
+              </script>
+          </div><!-- /Limo Booking Confirm Popup -->
+            
+        </div>
+      </div>
+      <!-- /Service Provider Col --> 
+    </div>
+  </div>
+  </div>
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var source, destination;
+    var directionsService = new google.maps.DirectionsService();
+    google.maps.event.addDomListener(window, 'load', function () {
+        new google.maps.places.SearchBox(document.getElementById('txtSource'));
+        new google.maps.places.SearchBox(document.getElementById('txtDestination'));
+    });
+
+    function GetRoute() {
+        var mumbai = new google.maps.LatLng(18.9750, 72.8258);
+        var mapOptions = {
+            zoom: 7,
+            center: mumbai
+        };
+        //*********DIRECTIONS AND ROUTE**********************//
+        source = document.getElementById("txtSource").value;
+        destination = document.getElementById("txtDestination").value;
+
+        var request = {
+            origin: source,
+            destination: destination,
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+
+
+        //*********DISTANCE AND DURATION**********************//
+        var service = new google.maps.DistanceMatrixService();
+        service.getDistanceMatrix({
+            origins: [source],
+            destinations: [destination],
+            travelMode: google.maps.TravelMode.DRIVING,
+            unitSystem: google.maps.UnitSystem.METRIC,
+            avoidHighways: false,
+            avoidTolls: false
+        }, function (response, status) {
+            if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                var distance = response.rows[0].elements[0].distance.text;
+                var duration = response.rows[0].elements[0].duration.text;
+                var dvDistance = document.getElementById("dvDistance");
+                dvDistance.innerHTML = "";
+                dvDistance.innerHTML += "Distance " + distance ;
+//                dvDistance.innerHTML += "Duration:" + duration;
+                
+
+            } else {
+                alert("Unable to find the distance via road.");
+            }
+        });
+    }
+</script>
+
+<footer></footer>
+</div>

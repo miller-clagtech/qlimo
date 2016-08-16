@@ -1,0 +1,60 @@
+ <link href="assets/css/admin/style_login.css" rel="stylesheet" type="text/css" />
+<div class="body-back-end-login">
+        <div class="login-bg">
+                <!--WRAPPER-->
+                <div class="login-wrapper"> 
+                <div class="login-wrapper-inner">
+                   <!--HEADER-->
+                                <div class="header">
+                                <img src="assets/images/admin/qlimo-logo.png">
+                                </div>
+                                <!--END HEADER-->
+
+                        <!--SLIDE-IN ICONS-->
+
+                        <p align="center" class="warning"></p>
+                        <form class="login-form" name="form" ng-submit="vm.login(form)" novalidate>
+
+
+                                <!--CONTENT-->
+                                <div class="content"> 
+                                <!--USERNAME-->
+                                <input name="username" type="text" class="input username"  placeholder="Username"  ng-model="vm.user.email" required/>
+                                <!--END USERNAME--> 
+                                <!--PASSWORD-->
+                                <input name="password" type="password" class="input password" placeholder="Password" ng-model="vm.user.password" required />
+                                <!--END PASSWORD--> 
+                                </div>
+                                <!--END CONTENT--> 
+                                <div class="form-group has-error">
+                                    <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && vm.submitted">
+                                       Please enter your email and password.
+                                    </p>
+                                    <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
+                                       Please enter a valid email.
+                                    </p>
+
+                                    <p class="help-block">{{ vm.errors.other }}</p>
+                                  </div>
+                                <!--FOOTER-->
+
+                                <!--LOGIN BUTTON-->
+                                <input type="submit" name="submit" value="Login" class="button" />
+                                <!--END LOGIN BUTTON--> 
+
+                        </form>
+                        </div>
+                </div><!--wrapper-->
+        </div><!--login-bg-->
+</div><!--body-back-end-->
+
+
+
+
+
+
+
+
+
+
+

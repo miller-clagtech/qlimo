@@ -1,0 +1,201 @@
+@font-face {
+  font-family: 'MyriadPro-Bold';
+  src: url('../myriad-font/MyriadPro-Bold.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-Bold.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-Bold.woff') format('woff'), url('../myriad-font/MyriadPro-Bold.ttf')  format('truetype'), url('../myriad-font/MyriadPro-Bold.svg#MyriadPro-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-BoldIt';
+  src: url('../myriad-font/MyriadPro-BoldIt.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-BoldIt.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-BoldIt.woff') format('woff'), url('../myriad-font/MyriadPro-BoldIt.ttf')  format('truetype'), url('../myriad-font/MyriadPro-BoldIt.svg#MyriadPro-BoldIt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-BoldCond';
+  src: url('../myriad-font/MyriadPro-BoldCond.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-BoldCond.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-BoldCond.woff') format('woff'), url('../myriad-font/MyriadPro-BoldCond.ttf')  format('truetype'), url('../myriad-font/MyriadPro-BoldCond.svg#MyriadPro-BoldCond') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-BoldCondIt';
+  src: url('../myriad-font/MyriadPro-BoldCondIt.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-BoldCondIt.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-BoldCondIt.woff') format('woff'), url('../myriad-font/MyriadPro-BoldCondIt.ttf')  format('truetype'), url('../myriad-font/MyriadPro-BoldCondIt.svg#MyriadPro-BoldCondIt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-Cond';
+  src: url('../myriad-font/MyriadPro-Cond.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-Cond.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-Cond.woff') format('woff'), url('../myriad-font/MyriadPro-Cond.ttf')  format('truetype'), url('../myriad-font/MyriadPro-Cond.svg#MyriadPro-Cond') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-CondIt';
+  src: url('../myriad-font/MyriadPro-CondIt.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-CondIt.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-CondIt.woff') format('woff'), url('../myriad-font/MyriadPro-CondIt.ttf')  format('truetype'), url('../myriad-font/MyriadPro-CondIt.svg#MyriadPro-CondIt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-Regular';
+  src: url('../myriad-font/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-Regular.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-Regular.woff') format('woff'), url('../myriad-font/MyriadPro-Regular.ttf')  format('truetype'), url('../myriad-font/MyriadPro-Regular.svg#MyriadPro-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-Semibold';
+  src: url('../myriad-font/MyriadPro-Semibold.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-Semibold.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-Semibold.woff') format('woff'), url('../myriad-font/MyriadPro-Semibold.ttf')  format('truetype'), url('../myriad-font/MyriadPro-Semibold.svg#MyriadPro-Semibold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyriadPro-SemiboldIt';
+  src: url('../myriad-font/MyriadPro-SemiboldIt.eot?#iefix') format('embedded-opentype'),  url('../myriad-font/MyriadPro-SemiboldIt.otf')  format('opentype'),
+	     url('../myriad-font/MyriadPro-SemiboldIt.woff') format('woff'), url('../myriad-font/MyriadPro-SemiboldIt.ttf')  format('truetype'), url('../myriad-font/MyriadPro-SemiboldIt.svg#MyriadPro-SemiboldIt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/*******************
+SELECTION STYLING
+*******************/
+
+::selection {
+	color: #fff;
+	background: #f676b2; /* Safari */
+}
+::-moz-selection {
+	color: #fff;
+	background: #f676b2; /* Firefox */
+}
+
+/*******************
+BODY STYLING
+*******************/
+
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+body {
+
+	font-family: 'MyriadPro-Regular';
+	font-weight:300;
+	text-align: left;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background: #fff !important;
+    background-image: none;
+    color: rgb(0, 0, 0);
+}
+/********login-start*********/
+.body-back-end-login .login-bg{
+	background-color:#122c43;
+	width:100%;
+	height: 100%;
+    
+}
+.body-back-end-login .login-wrapper {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.body-back-end-login .login-wrapper-inner {
+	display: table-cell;
+	width:100%;
+	height: 100%;
+	vertical-align: middle;
+	padding:15px;
+}
+.body-back-end-login .login-bg .header{
+	text-align:center;
+	margin-bottom:2%;
+        background: none;
+}
+.body-back-end-login .login-bg .login-form{
+	max-width: 580px;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	z-index:5;
+	background-color: #14324c;
+	border: 1px solid #0a2842;
+	border-radius: 1px;
+	padding:50px;
+	text-align:center;
+}
+
+/* Input field */
+.body-back-end-login .login-form .content .input {
+	width:100%;
+	max-width:482px;
+	padding: 10px 20px;
+	font-family: 'MyriadPro-Regular';
+	font-size: 18px;
+	color: #a8a8a8;
+	background: transparent;
+	border:none;
+	border-bottom:1px solid #e1e1e1;
+	outline:none;
+}
+
+/* Second input field */
+.body-back-end-login .login-form .content .password, .login-form .content .pass-icon {
+	margin-top:12%;
+}
+
+/* Login button */
+.body-back-end-login .login-form .button {
+    padding: 11px 51px;
+    font-family: 'MyriadPro-Semibold';
+    font-size: 24px;
+    color: #122c43;
+    text-transform: uppercase;
+    background-color: #feca00;
+    border: 1px solid #0a2842;
+    cursor: pointer;
+    outline: none;
+    margin-top: 12%;
+    text-align: center;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+}
+
+.body-back-end-login .login-form .footer .button:hover {
+	background: #3f9db8;
+	border: 1px solid rgba(256,256,256,0.75);
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.body-back-end-login .login-form .footer .button:focus {
+	position: relative;
+	bottom: -1px;
+	
+	background: #56c2e1;
+	
+	box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+}
+input{
+    background: none;
+}
+@media only screen and (min-width: 767px) {
+.body-back-end-login .login-bg{
+	position:fixed;
+}
+}

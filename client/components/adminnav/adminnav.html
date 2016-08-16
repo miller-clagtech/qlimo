@@ -1,0 +1,47 @@
+  <div class="dashboard-category-menu clearfix" ng-show="nav.isAdmin()">
+    <div class="category-menu-logo"><a href="#"><img src="assets/images/admin/qlimo-logo.png"></a> </div>
+    <!--category-menu-logo-->
+    <div class="welcome-admin-container clearfix">
+      <div class="welcome-admin"> Welcome <span>ADMIN</span> </div>
+      <!--welcome-admin-->
+      <div class="admin-power-button"> <a ui-sref="logout"><i class="fa fa-power-off" aria-hidden="true"></i></a> </div>
+      <!--admin-power-button-->
+      <div class="admin-setting"> <a href="#"><i class="fa fa-wrench" aria-hidden="true"></i></i></a> </div>
+      <!--admin-setting--> 
+    </div>
+    <!--welcome-admin-container-->
+    <ul>
+      <li class="icn_new_article"><a ui-sref="admin">Home</a></li>
+      <li class="icn_new_article"><a ui-sref="managevehicletype">Manage Vehicle Type</a></li>
+      <li class="icn_new_article"><a ui-sref="managevehicle">Manage Vehicles</a></li>
+      <li class="icn_new_article"><a ui-sref="manageserviceprovider">Manage Service Provider</a></li>
+      <li class="icn_new_article"><a ui-sref="servicevehicle">Manage Vehicle</a></li>
+      <li class="icn_new_article"><a ui-sref="servicedriver">Manage Driver</a></li>
+    </ul>
+  </div>
+
+
+  <div class="dashboard-category-menu clearfix" ng-hide="nav.isAdmin()">
+    <div class="category-menu-logo"><a href="#"><img src="assets/images/admin/qlimo-logo.png"></a> </div>
+    <!--category-menu-logo-->
+    <div class="welcome-admin-container clearfix">
+      <div class="welcome-admin"> Hello <span>Servicer</span> </div>
+      <!--welcome-admin-->
+      <div class="admin-power-button"> <a ui-sref="logout"><i class="fa fa-power-off" aria-hidden="true"></i></a> </div>
+      <!--admin-power-button-->
+      <div class="admin-setting"> <a href="#"><i class="fa fa-wrench" aria-hidden="true"></i></i></a> </div>
+      <!--admin-setting--> 
+    </div>
+    <!--welcome-admin-container-->
+    <ul>
+      <li class="icn_new_article"><a ui-sref="serviceprovider">Home</a></li>
+      <li class="icn_new_article"><a ui-sref="servicevehicle">Manage Vehicle</a></li>
+      <li class="icn_new_article"><a ui-sref="servicedriver">Manage Driver</a></li>
+    </ul>
+  </div>
+
+
+
+
+
+

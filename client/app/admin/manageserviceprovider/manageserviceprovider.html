@@ -1,0 +1,198 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet" type="text/css">
+<link href="assets/css/admin/custom.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/admin/custom2.css" rel="stylesheet" type="text/css" />
+
+<div class="body-back-end" >
+  <div class="dashboard-bg" sidebar-directive="state">
+
+<adminheader></adminheader>
+<adminnav></adminnav>
+
+
+
+    <div class="dashboard-content">
+      <!-- /Top Bar -->
+      <!-- /Select Drivers -->
+      
+      <div class="dashboard-heading">
+        <h2>Manage Service Provider</h2>
+      </div>
+      
+      <div ng-show="manageserviceproviderCtrl.listView" >
+      <div class="admin-content">
+        <div class="admin-left">
+          <div class="drivers-detail bs-component">
+            <div >
+<!--              <div class="panel-heading">-->
+                <br/>
+              <!--</div>-->
+              <div class="table-responsive-auto" >
+                <table class="table table-bordered table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Company Name</th>
+                      <th>Full Name</th>
+                      <th>Email</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!--<tr dir-paginate="user in users|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">-->
+                    <tr ng-repeat="serviceProvider in manageserviceproviderCtrl.serviceProviderLists" >
+                      <td>{{$index + 1}}</td>
+                      <td>{{serviceProvider.companyName}}</td>
+                      <td>{{serviceProvider.firstName}} {{serviceProvider.lastName}}</td>
+                      <td>{{serviceProvider.email}}</td>
+                      <td>{{serviceProvider.registrationDate}}</td>
+                      <td>{{serviceProvider.status}}</td>
+                      
+                      <td>
+                        <button type="button" class="edit" ng-click="manageserviceproviderCtrl.updateThing(serviceProvider)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        <button type="button" class="user-times"><i class="fa fa-user-times" aria-hidden="true"></i></button>
+                        <button type="button" class="delete" ng-click="manageserviceproviderCtrl.deleteThing(serviceProvider)"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+                      </td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+                <dir-pagination-controls
+                        max-size="5"
+                        direction-links="true"
+                        boundary-links="true" > </dir-pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Admin Left -->
+        
+        <div class="admin-right">
+          <div class="text-center">
+            <button type="button" class="button add-btn" ng-click="manageserviceproviderCtrl.addNewItem()">Add</button>
+          </div>
+          <div class="filter-title"><span>Filter</span></div>
+          <div  class="filter-select">
+            <md-input-container>
+              <label>Driver Status</label>
+              <md-select ng-model="ctrl.userSt">
+                <md-option ng-repeat="st in ctrl.status" value="{{st.abbrev}}"> {{st.abbrev}} </md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+          <div  class="filter-select">
+            <md-input-container>
+              <label>Driver ID</label>
+              <md-select ng-model="ctrl.userdriverid">
+                <md-option ng-repeat="driver in ctrl.statdrivers" value="{{driver.abbrev}}"> {{driver.abbrev}} </md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+          <div class="search">
+            <input type="text" placeholder="search keyword" class="form-control">
+          </div>
+          <!-- /Search -->
+          <div class="text-center">
+            <button type="button" class="button search-btn">Search</button>
+          </div>
+        </div>
+        <!-- Admin Right --> 
+      </div>
+      </div>
+      
+      <div ng-hide="manageserviceproviderCtrl.listView" >
+        <!-- /Admin Form -->
+    <div class="title">
+        <h2>Add Service Provider</h2>
+        <span><a href="" ng-click="manageserviceproviderCtrl.manageListView()">List View</a></span>
+    </div>
+        
+    <div class="admin-form">
+      <form class="form" name="form" ng-submit="manageserviceproviderCtrl.registerServiceProvider(form)" novalidate>
+          
+        <div class="form-group">
+          <label for="exampleInputPassword1">Company Name</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Company Name" ng-model="manageserviceproviderCtrl.user.companyName">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">First Name</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="First Name" ng-model="manageserviceproviderCtrl.user.name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Last Name</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Last Name" ng-model="manageserviceproviderCtrl.user.lastName">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" ng-model="manageserviceproviderCtrl.user.email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> 
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="manageserviceproviderCtrl.user.password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Confirm Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="manageserviceproviderCtrl.user.confirmPassword">
+        </div>
+          <div class="form-group">
+          <label for="exampleInputPassword1">Commission (Percentage)</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Commission (Percentage)">
+        </div>
+          <div class="form-group">
+          <label for="exampleInputPassword1">Commission (Per Booking)</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Commission (Per Booking)">
+        </div>
+          <div class="form-group">
+          <label for="exampleInputPassword1">Commission (Per Day)</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Commission (Per Day)">
+        </div>
+          <div class="form-group">
+          <label for="exampleInputPassword1">Free trial month</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Free trial month"  ng-model="manageserviceproviderCtrl.user.freeTrial">
+        </div>
+          <div class="form-group">
+          <label for="exampleInputPassword1">No of free trail driver app</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="No of free trail driver app"  ng-model="manageserviceproviderCtrl.user.noOfFreeTrail">
+        </div>
+          <div class="form-group">
+          <label for="exampleInputPassword1">Annual app renewal fee</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Annual app renewal fee"  ng-model="manageserviceproviderCtrl.user.annualAppRenewalFee">
+        </div>
+          <div class="form-group">
+          <label for="exampleInputPassword1">Maximum allowed vehicle</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Maximum allowed vehicle"  ng-model="manageserviceproviderCtrl.user.maximumAllowedVehicle">
+        </div>
+         
+          <div class="form-group">
+          <label for="exampleInputPassword1">Status</label>
+          <select name="status" class="form-control" ng-model="manageserviceproviderCtrl.user.status">
+              <option selected="">Approved</option>
+              <option>Pending</option>
+          </select>
+            
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+        
+      
+    </div>
+    </div>
+    
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+

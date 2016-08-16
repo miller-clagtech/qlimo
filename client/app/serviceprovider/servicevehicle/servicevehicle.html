@@ -1,0 +1,261 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet" type="text/css">
+<link href="assets/css/admin/custom.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/admin/custom2.css" rel="stylesheet" type="text/css" />
+
+<div class="body-back-end" >
+  <div class="dashboard-bg" sidebar-directive="state">
+
+<adminheader></adminheader>
+<adminnav></adminnav>
+
+
+
+    <div class="dashboard-content">
+      <!-- /Top Bar -->
+      <!-- /Select Drivers -->
+      
+      <div class="dashboard-heading">
+        <h2>Manage Vehicle</h2>
+      </div>
+      <!--{{ servicevehicleCtrl.Auth.getCurrentUser()._id }} ------->
+      <div ng-show="servicevehicleCtrl.listView" >
+      <div class="admin-content">
+        <div class="admin-left">
+          <div class="drivers-detail bs-component">
+            <div >
+<!--              <div class="panel-heading">-->
+                <br/>
+                
+        
+        <div style="width: 100%">
+            <button value="" class="button search-btn" ng-click="servicevehicleCtrl.filterStatus()">All</button>
+            <button value="" class="button search-btn" ng-click="servicevehicleCtrl.filterStatus('Pending')">Pending</button>
+            <button value="" class="button search-btn" ng-click="servicevehicleCtrl.filterStatus('Accepted')">Accepted</button>
+            <button value="" class="button search-btn" ng-click="servicevehicleCtrl.filterStatus('Rejected')">Rejected</button>
+            <button value="" class="button search-btn" ng-click="servicevehicleCtrl.filterStatus('Assigned')">Assigned</button>
+            <button value="" class="button search-btn" ng-click="servicevehicleCtrl.filterStatus('Free Vehicle')">Free Vehicle</button>
+        </div>
+              <!--</div>-->
+              <div class="table-responsive-auto" >
+                <table class="table table-bordered table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                        <th>Vehicle Id</th>
+                        <th>Company Name</th>
+                        <th>Vehicle Type</th>
+                        <th>Vehicle Make</th>
+                        <th>Vehicle Model</th>
+                        <th>Vehicle Sitting</th>
+                        <th>Registration No</th>
+                        <th>Licence Plate No</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!--<tr dir-paginate="user in users|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">-->
+                    <tr ng-repeat="vehicles in servicevehicleCtrl.serviceVehicleLists | filter : { status: servicevehicleCtrl.filterStatusResult } | filter : { vehicleId: servicevehicleCtrl.searchKeyValue1 } | filter : { vehicleType: servicevehicleCtrl.searchKeyValue2 } | filter : { vehicleMake: servicevehicleCtrl.searchKeyValue3 } | filter : { serviceProviderId: servicevehicleCtrl.Auth.getCurrentUser()._id } | orderBy: servicevehicleCtrl.sortNameValue" >
+                        <th scope="row">{{$index + 1}}</th>
+                        <td>{{vehicles.vehicleId}}</td>
+                        <td>{{vehicles.companyName}}</td>
+                        <td>{{vehicles.vehicleType}}</td>
+                        <td>{{vehicles.vehicleMake}}</td>
+                        <td>{{vehicles.vehicleModel}}</td>
+                        <td>{{vehicles.vehicleSitting}}</td>
+                        <td>{{vehicles.registrationNo}}</td>
+                        <td>{{vehicles.licencePlateNo}}</td>
+                        <td>{{vehicles.status}}</td>
+                      
+                      <td>
+                        <button type="button" class="edit" ng-click="servicevehicleCtrl.updateThing(vehicles)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        <!--<button type="button" class="user-times"><i class="fa fa-user-times" aria-hidden="true"></i></button>-->
+                        <button type="button" class="delete" ng-click="servicevehicleCtrl.deleteThing(vehicles)"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+                      </td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+                <dir-pagination-controls
+                        max-size="5"
+                        direction-links="true"
+                        boundary-links="true" > </dir-pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Admin Left -->
+        
+        <div class="admin-right">
+          <div class="text-center">
+            <button type="button" class="button add-btn" ng-click="servicevehicleCtrl.addNewItem()">Add</button>
+          </div>
+            
+          <div class="filter-title"><span>Sort</span></div>
+          <div  class="filter-select">
+            <md-input-container>
+              <label>Driver Status</label>
+              <md-select
+                placeholder="Sort Name"
+                ng-model="servicevehicleCtrl.sortName"
+                >
+                <md-option>Vehicle Id</md-option>
+                <md-option>Vehicle Type</md-option>
+                <md-option>Vehicle Make</md-option>
+            </md-select>
+            </md-input-container>
+          </div>
+          <div  class="filter-select">
+            <md-input-container>
+              <label>Driver Status</label>
+              <md-select
+                placeholder="Sort Type"
+                ng-model="servicevehicleCtrl.sortType"
+                >
+                <md-option>Ascending</md-option>
+                <md-option>Descending</md-option>
+            </md-select>
+            </md-input-container>
+          </div>
+          
+          <!-- /Search -->
+          <div class="text-center">
+            <button type="button" class="button search-btn" ng-click="servicevehicleCtrl.orderRows()">Sort</button>
+          </div>
+            
+          <div class="filter-title"><span>Filter</span></div>
+          <div  class="filter-select">
+            <md-input-container>
+              <label>Driver Status</label>
+              <md-select
+                placeholder="Search Type"
+                ng-model="servicevehicleCtrl.searchName"
+                >
+                <md-option>Vehicle Id</md-option>
+                <md-option>Vehicle Type</md-option>
+                <md-option>Vehicle Make</md-option>
+            </md-select>
+            </md-input-container>
+          </div>
+          <div class="search">
+            <input type="text" placeholder="search keyword" class="form-control" ng-model="servicevehicleCtrl.searchKey">
+          </div>
+          <!-- /Search -->
+          <div class="text-center">
+            <button type="button" class="button search-btn" ng-click="servicevehicleCtrl.searchRows()">Filter</button>
+          </div>
+        </div>
+        <!-- Admin Right --> 
+      </div>
+      </div>
+      
+      <div ng-hide="servicevehicleCtrl.listView" >
+        <!-- /Admin Form -->
+    <div class="title">
+        <h2 ng-show="servicevehicleCtrl.addNew">Add Vehicle</h2>
+        <h2 ng-hide="servicevehicleCtrl.addNew">Edit Vehicle</h2>
+        <span><a href="" ng-click="servicevehicleCtrl.manageListView()">List View</a></span>
+    </div>
+        
+    <div class="admin-form">
+      <!--<form class="form" name="form" ng-submit="servicevehicleCtrl.addThing(form)" novalidate>-->
+      <form class="form" name="form">
+          
+          <input type="hidden" class="form-control" placeholder="Vehicle ID" ng-model="servicevehicleCtrl.id">
+          
+        <div class="form-group" ng-show="nav.isAdmin()">
+          <label for="exampleInputPassword1">Status </label>
+          <md-select
+            placeholder="Status"
+            ng-model="servicevehicleCtrl.status"
+            >
+            <md-option>Accepted</md-option>
+            <md-option>Assigned</md-option>
+            <md-option>Free Vehicle</md-option>
+            <md-option>Pending</md-option>
+            <md-option>Rejected</md-option>
+          </md-select>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Vehicle ID </label>
+          <input type="text" class="form-control" placeholder="Vehicle ID" ng-model="servicevehicleCtrl.vehicleId">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Company Name</label>
+          <input type="text" class="form-control" placeholder="Vehicle Name" ng-model="servicevehicleCtrl.vehicleName">
+        </div>
+          
+          
+        <div class="form-group">
+          <label for="exampleInputPassword1">Vehicle Type</label>
+          <!--<input type="text" class="form-control" placeholder="Vehicle Type" ng-model="servicevehicleCtrl.vehicleType">-->
+          <md-select
+            placeholder="Vehicle Type"
+            ng-model="servicevehicleCtrl.vehicleType"
+            ng-change="servicevehicleCtrl.taxiModel(servicevehicleCtrl.vehicleType)">
+            <md-option ng-repeat="vehicleType in servicevehicleCtrl.vehicleTypeLists | filter : { active: true }">{{vehicleType.name}}</md-option>
+        </md-select>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Vehicle Make  </label>
+          <!--<input type="text" class="form-control" placeholder="Vehicle Make" ng-model="servicevehicleCtrl.vehicleMake">-->
+          <md-select
+            placeholder="Vehicle Name"
+            ng-model="servicevehicleCtrl.vehicleMake"
+            >
+            <md-option ng-repeat="vehicle in servicevehicleCtrl.vehicleLists | filter : { vehicleType: servicevehicleCtrl.vehicleType } | filter : { active: true }" >
+                {{ vehicle.vehicle }}
+            </md-option>
+        </md-select>
+        </div>
+          
+          
+        <div class="form-group">
+          <label for="exampleInputPassword1">Vehicle Model</label>
+          <input type="text" class="form-control" placeholder="Vehicle Model" ng-model="servicevehicleCtrl.vehicleModel">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Vehicle Year</label>
+          <input type="text" class="form-control" placeholder="Vehicle Year" ng-model="servicevehicleCtrl.vehicleYear">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Vehicle Color</label>
+          <input type="text" class="form-control" placeholder="Vehicle Color" ng-model="servicevehicleCtrl.vehicleColor">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Vehicle Sitting</label>
+          <input type="text" class="form-control" placeholder="Vehicle Sitting" ng-model="servicevehicleCtrl.vehicleSitting">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Registration No</label>
+          <input type="text" class="form-control" placeholder="Registration No" ng-model="servicevehicleCtrl.registrationNo">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Licence Plate No</label>
+          <input type="text" class="form-control" placeholder="Licence Plate No" ng-model="servicevehicleCtrl.licencePlateNo">
+        </div>
+          
+        
+        
+          <button type="submit" class="btn btn-primary" ng-show="servicevehicleCtrl.addNew" ng-click="servicevehicleCtrl.addThing()">Submit</button>
+        <button type="submit" class="btn btn-primary" ng-hide="servicevehicleCtrl.addNew" ng-click="servicevehicleCtrl.updateValue()">Update</button>
+      </form>
+    </div>
+    </div>
+        
+    </div>
+    
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
