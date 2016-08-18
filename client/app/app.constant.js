@@ -1,14 +1,8 @@
-(function(angular, undefined) {
-  angular.module("aacrudApp.constants", [])
+"use strict";
 
-.constant("appConfig", {
-	"userRoles": [
-		"guest",
-		"user",
-		"serviceProvider",
-		"admin"
-	]
-})
-
-;
+(function (angular, undefined) {
+	angular.module("aacrudApp.constants", []).constant("appConfig", {
+		"userRoles": ["guest", "user", "serviceProvider", "admin"]
+	});
 })(angular);
+//# sourceMappingURL=app.constant.js.map

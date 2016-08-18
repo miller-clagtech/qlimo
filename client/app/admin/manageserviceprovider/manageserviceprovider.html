@@ -32,7 +32,7 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Company Name</th>
+                      <th>Company Name </th>
                       <th>Full Name</th>
                       <th>Email</th>
                       <th>Date</th>
@@ -52,7 +52,8 @@
                       
                       <td>
                         <button type="button" class="edit" ng-click="manageserviceproviderCtrl.updateThing(serviceProvider)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                        <button type="button" class="user-times"><i class="fa fa-user-times" aria-hidden="true"></i></button>
+                        <button type="button" class="user-times" ng-show="serviceProvider.status == 'Approved' ? 1 : 0 " ng-click="manageserviceproviderCtrl.changeStatus(serviceProvider)"><i class="fa fa-user-times" aria-hidden="true"></i></button>
+                        <button type="button" class="user-times-disabled" ng-hide="serviceProvider.status == 'Approved' ? 1 : 0 " ng-click="manageserviceproviderCtrl.changeStatus(serviceProvider)"><i class="fa fa-user-times" aria-hidden="true"></i></button>
                         <button type="button" class="delete" ng-click="manageserviceproviderCtrl.deleteThing(serviceProvider)"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
                       </td>
                     </tr>
@@ -105,77 +106,83 @@
       <div ng-hide="manageserviceproviderCtrl.listView" >
         <!-- /Admin Form -->
     <div class="title">
-        <h2>Add Service Provider</h2>
+        <h2 ng-show="manageserviceproviderCtrl.addNew">Add Service Provider</h2>
+        <h2 ng-hide="manageserviceproviderCtrl.addNew">Edit Service Provider</h2>
         <span><a href="" ng-click="manageserviceproviderCtrl.manageListView()">List View</a></span>
     </div>
         
-    <div class="admin-form">
+    <div class="admin-form"> 
       <form class="form" name="form" ng-submit="manageserviceproviderCtrl.registerServiceProvider(form)" novalidate>
+     
           
+          <input type="hidden" class="form-control" ng-model="manageserviceproviderCtrl.id">
         <div class="form-group">
-          <label for="exampleInputPassword1">Company Name</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Company Name" ng-model="manageserviceproviderCtrl.user.companyName">
+          <label for="exampleInputPassword1">Company Namee </label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Company Name" ng-model="manageserviceproviderCtrl.companyName">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">First Name</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="First Name" ng-model="manageserviceproviderCtrl.user.name">
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="First Name" ng-model="manageserviceproviderCtrl.name">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Last Name</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Last Name" ng-model="manageserviceproviderCtrl.user.lastName">
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Last Name" ng-model="manageserviceproviderCtrl.lastName">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" ng-model="manageserviceproviderCtrl.user.email">
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" ng-model="manageserviceproviderCtrl.email">
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> 
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="manageserviceproviderCtrl.user.password">
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="manageserviceproviderCtrl.password">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Confirm Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="manageserviceproviderCtrl.user.confirmPassword">
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="manageserviceproviderCtrl.confirmPassword">
         </div>
           <div class="form-group">
           <label for="exampleInputPassword1">Commission (Percentage)</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Commission (Percentage)">
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Commission (Percentage)" ng-model="manageserviceproviderCtrl.commissionPercentage">
         </div>
           <div class="form-group">
           <label for="exampleInputPassword1">Commission (Per Booking)</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Commission (Per Booking)">
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Commission (Per Booking)" ng-model="manageserviceproviderCtrl.commissionPerBooking">
         </div>
           <div class="form-group">
           <label for="exampleInputPassword1">Commission (Per Day)</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Commission (Per Day)">
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Commission (Per Day)" ng-model="manageserviceproviderCtrl.commissionPerDay">
         </div>
           <div class="form-group">
           <label for="exampleInputPassword1">Free trial month</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Free trial month"  ng-model="manageserviceproviderCtrl.user.freeTrial">
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Free trial month"  ng-model="manageserviceproviderCtrl.freeTrial">
         </div>
           <div class="form-group">
           <label for="exampleInputPassword1">No of free trail driver app</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="No of free trail driver app"  ng-model="manageserviceproviderCtrl.user.noOfFreeTrail">
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="No of free trail driver app"  ng-model="manageserviceproviderCtrl.noOfFreeTrail">
         </div>
           <div class="form-group">
           <label for="exampleInputPassword1">Annual app renewal fee</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Annual app renewal fee"  ng-model="manageserviceproviderCtrl.user.annualAppRenewalFee">
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Annual app renewal fee"  ng-model="manageserviceproviderCtrl.annualAppRenewalFee">
         </div>
           <div class="form-group">
           <label for="exampleInputPassword1">Maximum allowed vehicle</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Maximum allowed vehicle"  ng-model="manageserviceproviderCtrl.user.maximumAllowedVehicle">
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Maximum allowed vehicle"  ng-model="manageserviceproviderCtrl.maximumAllowedVehicle">
         </div>
          
           <div class="form-group">
           <label for="exampleInputPassword1">Status</label>
-          <select name="status" class="form-control" ng-model="manageserviceproviderCtrl.user.status">
+          <select name="status" class="form-control" ng-model="manageserviceproviderCtrl.status">
               <option selected="">Approved</option>
               <option>Pending</option>
           </select>
             
         </div>
         
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+         <button ng-show="manageserviceproviderCtrl.addNew" type="submit" class="btn btn-primary" >Add New</button>
+         <button ng-hide="manageserviceproviderCtrl.addNew" type="button" class="btn btn-primary" ng-click="manageserviceproviderCtrl.updateValue()">Update Details</button>
+        
       </form>
     </div>
         

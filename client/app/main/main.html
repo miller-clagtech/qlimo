@@ -163,7 +163,7 @@
                     placeholder="Vehicle Type"
                     ng-model="$ctrl.taxiModel3"
                     ng-change="$ctrl.taxiModel($ctrl.taxiModel3)">
-                    <md-option ng-repeat="vehicle_type in $ctrl.vehicleTypeLists | filter : { active: true }">{{vehicle_type.name}}</md-option>
+                    <md-option ng-repeat="vehicleType in $ctrl.vehicleTypeLists | filter : { active: true }">{{vehicleType.name}}</md-option>
                 </md-select>
               </form>
             </md-content>
@@ -200,7 +200,7 @@
                     placeholder="Vehicle Name"
                      ng-model="$ctrl.taxiModel4"
                     >
-                    <md-option ng-repeat="vehicle in $ctrl.vehicleLists | filter : { vehicle_type: $ctrl.vehicleType } | filter : { active: true }" >
+                    <md-option ng-repeat="vehicle in $ctrl.vehicleLists | filter : { vehicleType: $ctrl.vehicleType } | filter : { active: true }" >
                         {{ vehicle.vehicle }}
                     </md-option>
                 </md-select>
@@ -247,12 +247,12 @@
 				</div>
 				  <div class="service-provider-dialog-content">
 				  		<ul>
-	<li ng-repeat="serviceprovider in $ctrl.serviceproviderLists">
+	<li ng-repeat="serviceprovider in $ctrl.serviceproviderLists  | filter : { status: 'Approved' }">
             <div class="service-provider-info">
                     <div class="service-provider-info-inner clearfix">
                             <div class="service-provider-name">
                                     <i class="taxi-icon"><img src="assets/images/service-provider-icon.png" /></i>
-                                    <h2>{{ serviceprovider.company_name }}</h2>
+                                    <h2>{{ serviceprovider.companyName }}</h2>
                                     <input type="button" name="show_details" value="Select this" ng-click="$ctrl.selectServiceProvider(serviceprovider._id)">
                                     <div class="rating">
                                             <ul>
@@ -276,19 +276,19 @@
                             <ul>
                                     <li>
                                             <h4>Arrival Time</h4>
-                                            <span>{{ serviceprovider.arrival_time }} {{ serviceprovider.arrival_time_type }}</span>
+                                            <span>{{ serviceprovider.arrivalTime }} {{ serviceprovider.arrivalTimeType }}</span>
                                     </li>
                                     <li>
                                             <h4>Estimated Fare</h4>
-                                            <span>${{ serviceprovider.estimated_time }}</span>
+                                            <span>${{ serviceprovider.estimatedTime }}</span>
                                     </li>
                                     <li>
                                             <h4>Minimum Fare</h4>
-                                            <span>${{ serviceprovider.minimum_fare }}</span>
+                                            <span>${{ serviceprovider.minimumFare }}</span>
                                     </li>
                                     <li>
                                             <h4>Maxium Riders</h4>
-                                            <span>{{ serviceprovider.maximum_riders }} Person</span>
+                                            <span>{{ serviceprovider.maximumRiders }} Person</span>
                                     </li>
                             </ul>
                     </div>
@@ -342,19 +342,19 @@
                 <ul class="clearfix">
                     <li>
                         <h4>Arrival Time</h4>
-                        <span>{{ data.arrival_time }} {{ data.arrival_time_type }}</span>
+                        <span>{{ data.arrivalTime }} {{ data.arrivalTimeType }}</span>
                     </li>
                     <li>
                         <h4>Estimated Fare</h4>
-                        <span>${{ data.estimated_time }}</span>
+                        <span>${{ data.estimatedTime }}</span>
                     </li>
                     <li>
                         <h4>Minimum Fare</h4>
-                        <span>${{ data.minimum_fare }}</span>
+                        <span>${{ data.minimumFare }}</span>
                     </li>
                     <li>
                         <h4>Maxium Riders</h4>
-                        <span>{{ data.maximum_riders }}</span>
+                        <span>{{ data.maximumRiders }}</span>
                     </li>
                 </ul>
                 

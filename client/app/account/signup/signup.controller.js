@@ -25,11 +25,21 @@ var SignupController = function () {
       this.submitted = true;
 
       if (form.$valid) {
-        this.Auth.createUser({
+        //      this.Auth.createUser({
+        //          provider: 'local',
+        //          role: 'user',
+        //          name: this.user.name,
+        //          email: this.user.email,
+        //          password: this.user.password
+        //        })
+        this.$http.post('/api/users', {
+          provider: 'local',
+          role: 'user',
           name: this.user.name,
           email: this.user.email,
           password: this.user.password
         }).then(function () {
+          console.log(_this.user.name + " gggggggggg " + _this.user.email);
           // Account created, redirect to home
           _this.$state.go('main');
         }).catch(function (err) {
